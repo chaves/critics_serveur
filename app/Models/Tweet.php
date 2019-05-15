@@ -14,6 +14,8 @@ class Tweet extends Model
         'done'
       ];
 
+    public $timestamps = true;
+
     public function scopeFindId($query, $source_id)
     {
         return $query->where('id', $source_id);
