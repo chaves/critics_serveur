@@ -13,18 +13,18 @@ class TweetsController extends Controller
         // var_dump($type);
         // exit();
         if($type == 'all') {
-            return Tweet::where('done', 0)->orderBy('hashtag', 'asc')->orderBy('updated_at', 'asc')->paginate(12);
+            return Tweet::where('done', 0)->orderBy('hashtag', 'asc')->orderBy('updated_at', 'desc')->paginate(12);
         } else {
-            return Tweet::where('done', 0)->orderBy('hashtag', 'asc')->where('owner', $type)->orderBy('updated_at', 'asc')->paginate(12);
+            return Tweet::where('done', 0)->orderBy('hashtag', 'asc')->where('owner', $type)->orderBy('updated_at', 'desc')->paginate(12);
         }
     }
 
     public function done(Request $request) {
         $type = $request->segment(4);
         if($type == 'all') {
-            return Tweet::where('done', 1)->orderBy('hashtag', 'asc')->orderBy('updated_at', 'asc')->paginate(12);
+            return Tweet::where('done', 1)->orderBy('hashtag', 'asc')->orderBy('updated_at', 'desc')->paginate(12);
         } else {
-            return Tweet::where('done', 1)->orderBy('hashtag', 'asc')->orderBy('updated_at', 'asc')->where('owner', $type)->paginate(12);
+            return Tweet::where('done', 1)->orderBy('hashtag', 'asc')->orderBy('updated_at', 'desc')->where('owner', $type)->paginate(12);
         }
     }
 
