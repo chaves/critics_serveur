@@ -19,5 +19,6 @@ use Illuminate\Http\Request;
 
 Route::get('tweets/{name?}', 'TweetsController@index')->name('tweets');
 Route::get('tweets/done/{name?}', 'TweetsController@done')->name('tweetsDone');
+Route::get('stats/{name?}', 'TweetsController@stats')->name('tweetsStats');
 
 Route::post('tweets/update/{name?}', 'TweetsController@update');
